@@ -12,3 +12,19 @@ inscription:
 product:
     path: /product
     controller: App\Controller\ProductController::product
+
+bag_add:
+    path: /bag/{id}
+    controller: App\Controller\PaiementController::add
+
+bag:
+  path: /bag
+  controller: App\Controller\PaiementController::bag
+
+bag_remove:
+  path: /bag/remove/{id}
+  controller: App\Controller\PaiementController::remove
+
+paiement:
+  path: /paiement
+  controller: App\Controller\PaiementController::paiement

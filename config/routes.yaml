@@ -8,3 +8,7 @@ home:
 inscription:
   path: /inscription
   controller: App\Controller\InscriptionController::inscription
+
+product:
+    path: /product
+    controller: App\Controller\ProductController::product

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 04 mars 2021 à 14:06
+-- Généré le :  ven. 05 mars 2021 à 10:43
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -43,7 +43,10 @@ CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
 ('DoctrineMigrations\\Version20210304095217', '2021-03-04 09:52:41', 77),
 ('DoctrineMigrations\\Version20210304095730', '2021-03-04 09:57:42', 99),
-('DoctrineMigrations\\Version20210304133654', '2021-03-04 13:37:12', 353);
+('DoctrineMigrations\\Version20210304133654', '2021-03-04 13:37:12', 353),
+('DoctrineMigrations\\Version20210304150608', '2021-03-04 15:06:23', 224),
+('DoctrineMigrations\\Version20210304150947', '2021-03-04 15:10:07', 433),
+('DoctrineMigrations\\Version20210304151438', '2021-03-04 15:14:46', 161);
 
 -- --------------------------------------------------------
 
@@ -420,120 +423,20 @@ INSERT INTO `product` (`id_product`, `name_product`, `price`, `description`) VAL
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `name`, `password`) VALUES
-(2, 'string', 'string', 'string'),
-(3, 'jean@gmail ', 'jerome', 'mdp'),
-(4, 'raph@gmail.com', 'raph', 'zu'),
-(5, 'laoreet.ipsum.Curabitur@rutrumnonhendrerit.ca', 'Tyler', 'Phasellus'),
-(6, 'ipsum.nunc@sociisnatoquepenatibus.org', 'Xenos', 'Fusce'),
-(7, 'sit.amet@ridiculus.co.uk', 'Diana', 'at'),
-(8, 'amet@sedsapienNunc.com', 'Jonah', 'Curae;'),
-(9, 'sagittis.semper.Nam@laoreetipsumCurabitur.org', 'Tarik', 'dolor'),
-(10, 'aliquam.enim.nec@magnaDuisdignissim.net', 'Ivor', 'sit'),
-(11, 'arcu.Vivamus@odiosagittis.com', 'Colorado', 'Proin'),
-(12, 'diam@ipsumporta.net', 'Judah', 'mollis.'),
-(13, 'gravida@diam.com', 'Kiona', 'odio'),
-(14, 'libero.Donec@parturient.com', 'Mari', 'eleifend'),
-(15, 'Nunc.mauris.Morbi@Donec.net', 'Larissa', 'Sed'),
-(16, 'senectus.et@blanditenim.edu', 'Kyra', 'non,'),
-(17, 'litora.torquent@montesnasceturridiculus.co.uk', 'Colton', 'In'),
-(18, 'vitae.aliquam.eros@ipsum.org', 'Ali', 'augue'),
-(19, 'feugiat.Sed.nec@pharetraNam.co.uk', 'Malachi', 'vehicula.'),
-(20, 'consectetuer.ipsum.nunc@Duisrisusodio.com', 'Abraham', 'Nulla'),
-(21, 'vel@tellusPhaselluselit.ca', 'Keane', 'vitae'),
-(22, 'lorem@arcuNuncmauris.edu', 'Wesley', 'vestibulum,'),
-(23, 'ante.iaculis@euismodet.edu', 'Dahlia', 'Nullam'),
-(24, 'nulla.magna.malesuada@nonleoVivamus.com', 'Yolanda', 'Nullam'),
-(25, 'Mauris@nuncnulla.edu', 'Kyle', 'pharetra'),
-(26, 'amet.nulla.Donec@lacusQuisque.edu', 'Quon', 'nec'),
-(27, 'id.erat.Etiam@mattisInteger.com', 'Amery', 'enim'),
-(28, 'non.feugiat@duiFusce.ca', 'Tucker', 'at,'),
-(29, 'massa@liberonecligula.ca', 'Bruno', 'magna'),
-(30, 'scelerisque@montesnascetur.net', 'Connor', 'Phasellus'),
-(31, 'risus.Nulla@elitAliquamauctor.co.uk', 'Dorothy', 'nec,'),
-(32, 'eleifend.vitae@lobortisrisusIn.com', 'Thaddeus', 'velit.'),
-(33, 'malesuada.augue@semper.co.uk', 'Kylee', 'nunc.'),
-(34, 'Curabitur.massa.Vestibulum@ac.net', 'Xandra', 'Sed'),
-(35, 'adipiscing.Mauris@elitAliquamauctor.org', 'Emerson', 'Mauris'),
-(36, 'ornare@lacusAliquam.net', 'Jocelyn', 'Nullam'),
-(37, 'mauris.rhoncus.id@etmagnisdis.co.uk', 'Ava', 'faucibus'),
-(38, 'odio.auctor.vitae@in.org', 'Adena', 'ornare.'),
-(39, 'eu.metus.In@leo.co.uk', 'Omar', 'Curabitur'),
-(40, 'dignissim.magna@hendrerit.net', 'Phyllis', 'pede.'),
-(41, 'conubia.nostra.per@ataugue.ca', 'Sacha', 'Cras'),
-(42, 'nisl@nuncsedlibero.ca', 'Brett', 'dolor.'),
-(43, 'Class.aptent.taciti@Maurisutquam.net', 'Fiona', 'mauris'),
-(44, 'lobortis@vitaemauris.co.uk', 'Dexter', 'Mauris'),
-(45, 'auctor.ullamcorper@Nulla.net', 'Thane', 'vehicula'),
-(46, 'aliquet.lobortis.nisi@risusNuncac.com', 'Georgia', 'Duis'),
-(47, 'laoreet@felis.co.uk', 'Clayton', 'justo.'),
-(48, 'Fusce@liberoProinsed.ca', 'Cassidy', 'gravida'),
-(49, 'nascetur.ridiculus.mus@risus.com', 'Rhea', 'nisl.'),
-(50, 'tempor.erat.neque@sed.com', 'Kermit', 'dui.'),
-(51, 'cubilia@Sed.ca', 'Sharon', 'vitae'),
-(52, 'tempus.scelerisque@Quisque.net', 'Samantha', 'elit.'),
-(53, 'urna.suscipit@erosnon.net', 'Nathan', 'non'),
-(54, 'Sed.eu.eros@id.net', 'Hilary', 'suscipit'),
-(55, 'dui.lectus.rutrum@risusquis.com', 'Justine', 'pharetra'),
-(56, 'morbi.tristique.senectus@habitant.org', 'Russell', 'lacinia'),
-(57, 'sit.amet@magnisdis.org', 'Tanek', 'imperdiet'),
-(58, 'consectetuer.adipiscing@facilisismagnatellus.com', 'Candice', 'per'),
-(59, 'nec.mollis@ipsumSuspendisse.com', 'Raja', 'elit'),
-(60, 'ipsum.leo.elementum@viverraMaecenas.co.uk', 'Brennan', 'turpis.'),
-(61, 'sit@molestie.com', 'Germaine', 'vitae'),
-(62, 'rhoncus.id@primisin.edu', 'Chastity', 'Aenean'),
-(63, 'sem@maurissagittis.com', 'Quamar', 'cursus'),
-(64, 'diam.Proin.dolor@elit.com', 'Lev', 'sem'),
-(65, 'Vivamus@vel.net', 'Mannix', 'molestie'),
-(66, 'diam.Pellentesque.habitant@nislNullaeu.com', 'Maisie', 'dui'),
-(67, 'commodo.tincidunt.nibh@Sedeueros.org', 'Cassady', 'Aenean'),
-(68, 'quis@vulputaterisusa.net', 'Tamara', 'habitant'),
-(69, 'arcu.Vestibulum.ut@aenimSuspendisse.co.uk', 'Vincent', 'Nam'),
-(70, 'et.risus@consectetueradipiscingelit.ca', 'Silas', 'sapien.'),
-(71, 'Proin.vel.arcu@dignissimmagna.com', 'Kerry', 'orci.'),
-(72, 'dui.lectus.rutrum@Proinsedturpis.com', 'Seth', 'ipsum.'),
-(73, 'mollis@Suspendisse.edu', 'Jamalia', 'pharetra'),
-(74, 'a.nunc.In@ideratEtiam.ca', 'Fulton', 'mauris,'),
-(75, 'Suspendisse.ac.metus@vitaenibhDonec.edu', 'Zane', 'luctus'),
-(76, 'Sed.pharetra@vehicularisus.ca', 'Joelle', 'Donec'),
-(77, 'magna.Praesent.interdum@semperet.org', 'Cassandra', 'aliquet'),
-(78, 'quis.pede.Suspendisse@mi.com', 'Stephen', 'Donec'),
-(79, 'est.mollis@tinciduntnequevitae.net', 'Marsden', 'vulputate,'),
-(80, 'enim.nisl.elementum@Namligulaelit.ca', 'Kitra', 'ligula'),
-(81, 'at.velit@eratvelpede.com', 'Thor', 'ligula'),
-(82, 'magna.Phasellus.dolor@sedlibero.ca', 'Quincy', 'enim'),
-(83, 'In.condimentum.Donec@enimEtiam.edu', 'Alan', 'quam'),
-(84, 'arcu.Vivamus.sit@penatibuset.org', 'Donovan', 'eget'),
-(85, 'urna.convallis@auctorquistristique.co.uk', 'Lacy', 'vulputate,'),
-(86, 'eu.turpis@duiquisaccumsan.com', 'Moses', 'semper.'),
-(87, 'Aenean.egestas@dictum.ca', 'Avye', 'arcu.'),
-(88, 'nec.urna.suscipit@aliquamiaculislacus.edu', 'Lisandra', 'leo'),
-(89, 'ut.pellentesque@a.org', 'Jenette', 'aliquet'),
-(90, 'Sed.eget@arcu.com', 'Quincy', 'ante,'),
-(91, 'Aliquam@utipsumac.edu', 'Blaze', 'placerat,'),
-(92, 'nec@sapienAenean.org', 'Larissa', 'pede'),
-(93, 'pretium.aliquet.metus@Crassed.net', 'Deborah', 'dictum'),
-(94, 'quis.diam@nequeNullamut.net', 'Laurel', 'nunc'),
-(95, 'vestibulum.neque@velarcuCurabitur.net', 'Byron', 'felis'),
-(96, 'cursus@ametmassa.edu', 'Colorado', 'orci,'),
-(97, 'non@utsem.ca', 'Zeph', 'luctus'),
-(98, 'semper.erat@tempusscelerisque.com', 'Ivana', 'vestibulum'),
-(99, 'tellus.Aenean@semperNamtempor.ca', 'Pascale', 'eu'),
-(100, 'sapien.Nunc.pulvinar@nonbibendum.co.uk', 'Walter', 'imperdiet'),
-(101, 'justo.faucibus@inlobortistellus.org', 'Orlando', 'dictum'),
-(102, 'ultrices.posuere.cubilia@pede.ca', 'Cruz', 'vel'),
-(103, 'ipsum.Suspendisse.non@aptenttaciti.edu', 'Abra', 'malesuada'),
-(104, 'nulla.In@molestieorcitincidunt.com', 'Ezra', 'tincidunt');
+INSERT INTO `user` (`id`, `password`, `name`, `email`) VALUES
+(107, '$2y$13$WBo/mE0T6W55/04hiVTRvuCl4aQOP3gSOg72WEwrjAI2JB/oPghvi', 'a', 'a@gmail.com'),
+(108, '$2y$13$gqUS4Y/cbes4gS5ZfPVfcO0eXRza0G2bm2LYTkPdRygi.1yvRQmX2', 'Raphael Abizmil', 'raphi1412@gmail.com'),
+(109, '$2y$13$8qLtf5heJuE4BxnhNsFAGeFO1jt8i5wQKpGA101HxlGmZqT.fwRwO', 'paul', 'paul@gmail.com');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

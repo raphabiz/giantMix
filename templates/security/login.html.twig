@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<section class="page-add">
+            <div class="container">
+                <div class="row">
+                    <div class="page-breadcrumb">
+                        <h2>Log In </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    
+        
+<form method="post">
+
+<div class="contact-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.name }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <label for="inputId">email</label>
+    <input type="text" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+    <label for="inputPassword" class="mt-3">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+          
+                    <div class="col-md-6 text-center mt-5 mb-5">
+                    <button class="btn btn-outline-dark" type="submit">
+        Log in
+    </button>
+                         <a  type="text" href="{{ path('app_register') }}">Create an account ?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+         </div>
+        </form>
+{% endblock %}
+

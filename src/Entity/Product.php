@@ -57,6 +57,21 @@ class Product
      */
     private $description;
 
+    /**
+     * Product constructor.
+     * @param int $idProduct
+     * @param string $nameProduct
+     * @param int|null $price
+     * @param string|null $description
+     */
+    public function __construct(int $idProduct, string $nameProduct, ?int $price, ?string $description)
+    {
+        $this->idProduct = $idProduct;
+        $this->nameProduct = $nameProduct;
+        $this->price = $price;
+        $this->description = $description;
+    }
+
     public function getIdProduct(): ?int
     {
         return $this->idProduct;

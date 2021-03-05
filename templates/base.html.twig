@@ -65,6 +65,12 @@
                             <li><a href="/api">Nos APIS</a></li>
                         </ul>
                     </nav>
+                    <nav>
+
+                        {{ render(controller(
+                            'App\\Controller\\SearchController::searchBar'
+                        )) }}
+                    </nav>
                 </div>
 
                 <div class="col-lg-5">
